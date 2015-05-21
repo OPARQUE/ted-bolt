@@ -1,0 +1,22 @@
+{% include 'partials/_header.twig' %}
+<div class="container internal-pages">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="h-strong">Edições</h2>
+        </div>
+    </div>
+    <div class="row list-cards-home">
+        {% setcontent edicoes = 'edicoes' %}
+        {% for item in edicoes %}
+            <div class="col-md-6 col-xs-12">
+                <a href="{{item.link}}" class="card-home" style="background-image: url({{image(item.imagem)}});">
+                    <div class="card-home-overlay">
+                        <h2 class="center-block">{{item.titulo|upper}}</h2>
+                        <h4>{{item.subtitulo}}</h4>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% include 'partials/_footer.twig' %}

@@ -1,0 +1,44 @@
+{% include 'partials/_header.twig' %}
+
+<div class="container">
+
+    {% include 'partials/_main_slider.twig' %}
+
+    <div class="row list-cards-home">
+        {% setcontent edicoes = 'edicoes' %}
+        {% for item in edicoes %}
+            <div class="col-md-6 col-xs-12">
+                <a href="{{item.link}}" class="card-home" style="background-image: url({{image(item.imagem)}});">
+                    <div class="card-home-overlay">
+                        <h2 class="center-block">{{item.titulo|upper}}</h2>
+                        <h4>{{item.subtitulo}}</h4>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>notícias</h3>
+        </div>
+        <div class="col-xs-12">
+            <div class="topo-edicao-divider"></div>
+        </div>
+        {% setcontent artigos = "artigos/latest/4" %}
+        {% for item in artigos %}
+            <div class="col-md-3 col-sm-6 col-xs-12 card-noticia-home">
+                <h4>
+                    <a href="{{item.link}}">{{item.titulo}}</a>
+                </h4>
+                <div class="meta-artigo">
+                    <span class="meta-edicao">EDIÇÃO #1 JABURU</span>
+                </div>
+                {{item.corpo|excerpt(160)}}
+                <a href="{{item.link}}"><strong>leia +</strong></a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'partials/_footer.twig' %}

@@ -1,0 +1,47 @@
+{% include 'partials/_header.twig' %}
+<div class="container edicao">
+    <div class="row artigos-posts-relacionados">
+        <div class="col-xs-12">
+            <div class="breadcrumb-ted">
+                <ul>
+                    <li>
+                        <a href="index.php">
+                            <h4>HOME</h4>
+                        </a>
+                    </li>
+                    <span class="fa fa-angle-right"></span>
+                    <li>
+                        <a href="edicoes.php">
+                            <h4>EDIÇÕES</h4>
+                        </a>
+                    </li>
+                    <span class="fa fa-angle-right"></span>
+                    <li>
+                        <a href="edicao-jaburu.php">
+                            <h4><strong>{{record.related("edicoes").0.titulo|upper}}</strong></h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="row item-list-artigo">
+                <div class="col-xs-12">
+                    <h2>
+                        {{record.titulo}}
+                    </h2>
+                    <div class="meta-artigo">
+                        <span class="meta-edicao">{{record.related("edicoes").0.titulo|upper}}</span> - <span class="meta-data">20/05/2015 - 10h52</span>
+                    </div>
+                </div>
+                <div class="col-xs-6 artigo-desc">
+                    {{record.corpo}}
+                </div>
+                <div class="col-xs-6">
+                    <img src="{{image(record.imagem)}}" class="img-responsive" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'partials/_footer.twig' %}

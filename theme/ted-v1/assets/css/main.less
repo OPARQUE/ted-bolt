@@ -1,0 +1,303 @@
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/css?family=Satisfy);
+@import url("../fonts/pluto/stylesheet.css");
+@import url("arrows-slick.less");
+
+@amarelo: #FCB415;
+@vermelho: #ED3624;
+@preto: #000;
+@branco: #fff;
+
+@font1: 'Pacifico', cursive; //Apenas um estilo
+@font2: 'Satisfy', cursive; //Apenas um estilo
+@font3: 'pluto', sans-serif; //600, 400 e 200 (sem italic)
+
+@gutter:15px;
+
+@heightFooter: 220px;
+
+.padding(@multiplicator: 1){
+    padding-top: @gutter * @multiplicator;
+    padding-bottom: @gutter * @multiplicator;
+}
+
+.transparencia(@p: 65){
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=@{p})";
+    filter: alpha(opacity=@p);
+    -moz-opacity:@p/100;
+    -khtml-opacity: @p/100;
+    opacity:@p/100;
+}
+
+.amarelo {
+    color: @amarelo;
+}
+.vermelho {
+    color: red;
+}
+
+.bottom-1 {
+    margin-bottom:15px;
+}
+
+.h-strong {
+    font-weight: 400;
+}
+//RESET
+html {
+    position:relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: @heightFooter + @gutter*2;
+}
+a, a:hover, a:visited, a:focus, a:active {
+    text-decoration: none;
+}
+a {
+    color:@preto;
+    &:hover {
+        color:@vermelho;
+    }
+}
+.input-ted {
+    input {
+        border:2px solid @preto;
+        border-radius: 0;
+        padding:6px 10px;
+        width:100%;
+        &:focus {
+            border-color:@vermelho !important;
+            box-shadow: 0 0 0 0;
+            outline:0;
+        }
+    }
+}
+.icon-busca {
+    position: absolute;
+    padding:10px 10px;
+    right:15px;
+    top:0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: @font3;
+    font-weight: 200;
+}
+
+//TOPO
+.topo {
+    .padding(2);
+    background-color:@amarelo;
+}
+.babado-topo {
+    height: 33px;
+    width:100%;
+    background-image: url(../img/babado.png);
+}
+.barra-menu-topo {
+    .padding(1);
+    margin-bottom: @gutter * 2;
+    //border-bottom: 1px dashed @vermelho;
+}
+.menu-topo {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+        display: inline;
+        margin-left:20px;
+        a {
+            display: inline-block;
+            font-family: @font1;
+            font-size: 24px;
+        }
+    }
+}
+footer {
+    background-color:@amarelo;
+    padding-top:@gutter * 2;
+    padding-bottom:@gutter * 2;
+    font-family: @font3;
+    font-weight: 400;
+    
+    position:absolute;
+    z-index: 9;
+    bottom:0;
+    width:100%;
+    height:@heightFooter;
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 400;
+        margin:0;
+    }
+}
+
+//CARDS HOME
+.list-cards-home {
+    .padding(2);
+}
+.card-home {
+    background-position: 50% 50%;
+    background-size: cover;
+    height:350px;
+    width:100%;
+    margin-bottom:@gutter * 2;
+    display: block;
+}
+.card-home-overlay {
+    position:absolute;
+    left:@gutter;
+    right:@gutter;
+    width:auto;
+    height:350px;
+    background-color: @vermelho;
+
+    .transparencia(0);
+
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+
+    color:@branco;
+    text-align:center;
+    padding-top:@gutter * 4;
+    padding-left:@gutter;
+    padding-right:@gutter;
+
+    h2 {
+        font-size:40px;
+    }
+    h4 {
+        position:absolute;
+        bottom:@gutter;
+        font-weight: 400;
+        width:100%;
+    }
+    &:hover {
+        .transparencia(70);
+    }
+}
+
+//EDIÇÃO
+.edicao {
+    padding-top:@gutter * 2;
+    h1 {
+        font-weight: 400;
+        color:@vermelho;
+        margin:0;
+    }
+}
+.topo-edicao-img {
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 230px;
+}
+.edicao-desc {
+    padding-bottom: @gutter;
+    font-family: @font3;
+}
+.topo-edicao-divider {
+    border-bottom: 4px solid @vermelho;
+    margin-bottom:@gutter;
+
+    &:after {
+        border-top: 8px solid @vermelho;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        content: "";
+        display: inline-block;
+        left: 30px;
+        position: absolute;
+        top: 4px;
+    }    
+
+}
+.item-list-artigo {
+    margin-bottom: @gutter * 2;
+    padding-bottom: @gutter;
+    border-bottom:1px solid lighten(@preto, 70%);
+    
+    h2 {
+        font-weight: 400;
+    }
+}
+.meta-artigo {
+    font-family: @font3;
+    font-weight: 400;
+    margin-bottom: @gutter;
+}
+.meta-edicao {
+    color:@vermelho;
+}
+.meta-data {
+    color:lighten(@preto, 60%);
+}
+
+//BREADCUMBS
+.breadcrumb-ted {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background:@branco;
+    border-bottom:1px solid @preto;
+    ul {
+        margin:0;
+        padding:0;
+    }
+    li {
+        display: inline;
+        margin-left:5px;
+        margin-right:5px;
+        a, h4 {
+            display: inline-block;
+            font-family: @font3;
+            font-size: 18px;
+        }
+    }
+}
+
+
+//Notícias home
+.card-noticia-home {
+    margin-bottom: @gutter * 2;
+    
+    h4 {
+        font-weight: 400;
+    }
+}
+
+//Onde
+.onde {
+    margin-bottom: @gutter * 2;
+}
+.titulo-onde {
+    font-weight: 400;
+}
+
+//O que é
+.o-que {
+    margin-bottom: @gutter * 2;
+}
+
+//Nós
+.nos {
+    margin-bottom: @gutter * 2;
+}
+.peoples {
+    margin-top: @gutter * 3;
+}
+.card-logos {
+    margin-bottom: @gutter;
+    text-align: center;
+    height: 150px;
+}
+
+//Contato
+.contato {
+    margin-bottom:@gutter * 2;
+}
+.form-contato {
+    border:1px solid @amarelo;
+    padding:20px 15px;
+}

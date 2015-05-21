@@ -1,0 +1,13 @@
+{% include 'partials/_header.twig' %}
+<div class="container o-que">
+    <div class="row">
+        <div class="{{record.class_coluna_1}}">
+            <h2 class="titulo-onde">{{record.titulo}}</h2>
+            {{record.corpo_coluna_1}}
+        </div>
+        <div class="{{record.class_coluna_2}}">
+            {{record.corpo_coluna_2}}
+        </div>
+    </div>
+</div>
+{% include 'partials/_footer.twig' %}

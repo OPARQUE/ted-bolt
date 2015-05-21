@@ -1,1 +1,17 @@
+# Ignora arquivos da pasta cache,
+# menos o arquivo index.html,
+# que serve para versionar a pasta
+app/cache/*
+!app/cache/index.html
+
+# Ignora pasta do NetBeans
 nbproject/*
+
+# Ignora todos arquivos de
+# configuração local
+app/config/*_local.yml
+
+# Ignora arquivos de banco
+# de dados
+app/database/*
+!app/database/index.html

@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'pluto';
+    src: url('plutoheavy-webfont.eot');
+    src: url('plutoheavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('plutoheavy-webfont.woff2') format('woff2'),
+         url('plutoheavy-webfont.woff') format('woff'),
+         url('plutoheavy-webfont.ttf') format('truetype'),
+         url('plutoheavy-webfont.svg#pluto') format('svg');
+    font-weight: 600;
+    font-style:normal;
+}
+
+@font-face {
+    font-family: 'pluto';
+    src: url('plutomedium-webfont.eot');
+    src: url('plutomedium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('plutomedium-webfont.woff2') format('woff2'),
+         url('plutomedium-webfont.woff') format('woff'),
+         url('plutomedium-webfont.ttf') format('truetype'),
+         url('plutomedium-webfont.svg#pluto') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pluto';
+    src: url('pluto_sans_extralight-webfont.eot');
+    src: url('pluto_sans_extralight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('pluto_sans_extralight-webfont.woff2') format('woff2'),
+         url('pluto_sans_extralight-webfont.woff') format('woff'),
+         url('pluto_sans_extralight-webfont.ttf') format('truetype'),
+         url('pluto_sans_extralight-webfont.svg#pluto') format('svg');
+    font-weight: 200;
+    font-style: normal;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'pluto';
+        src: url('plutoheavy-webfont.svg#pluto') format('svg');
+        font-weight: 600;
+    }
+    @font-face {
+        font-family: 'pluto';
+        src: url('plutomedium-webfont.svg#pluto') format('svg');
+        font-weight: 400;
+    }
+    @font-face {
+        font-family: 'pluto';
+        src: url('pluto_sans_extralight-webfont.svg#pluto') format('svg');
+        font-weight: 200;
+    }
+}

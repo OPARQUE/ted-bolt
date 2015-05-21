@@ -1,0 +1,53 @@
+//SETAS PERSONALIZADAS DO SLIDER
+@margin-arrow-left:-45px;
+@margin-arrow-right:-45px;
+.nav-arrow-left,
+.nav-arrow-right
+{
+    font-size: 0;
+    line-height: 0;
+
+    position: absolute;
+    top: 50%;
+
+    display: block;
+
+    width: 31px;
+    height: 48px;
+    margin-top: -10px;
+    padding: 0;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.nav-arrow-left:hover,
+.nav-arrow-left:focus,
+.nav-arrow-right:hover,
+.nav-arrow-right:focus
+{
+    color: transparent;
+    outline: none;
+    background: transparent;
+}
+.nav-arrow-left
+{
+    left: @margin-arrow-left;
+}
+[dir='rtl'] .nav-arrow-left
+{
+    right: @margin-arrow-right;
+    left: auto;
+}
+.nav-arrow-right
+{
+    right: @margin-arrow-right;
+}
+[dir='rtl'] .nav-arrow-right
+{
+    right: auto;
+    left: @margin-arrow-left;
+}

@@ -8,12 +8,13 @@ database:
 
 # The name of the website
 sitename: TED Território do Bem
-payoff: The amazing payoff goes here
+payoff: Acreditamos que espalhar ideias é um meio poderoso de estimular a mudança na realidade das pessoas
 
 # The theme to use. Be sure to copy the {theme_path}/base-2014 folder, and change the
 # name here accordingly. Don't edit the templates in theme/base-2014, because
 # they _will_ get updated in next releases
-theme: base-2014
+#theme: base-2014
+theme: ted-v1
 
 # The locale that'll be used by the application. If no locale is set the
 # fallback locale is 'en_GB'. For available options, see: http://docs.bolt.cm/locales
@@ -185,7 +186,7 @@ branding:
 # the debugbar is only shown to logged-in users. Use the 'debug_show_loggedoff'
 # option to show it to all users. You probably do not want to use this in a
 # production environment.
-debug: true
+debug: false
 developer_notices: false
 debug_show_loggedoff: false
 debug_permission_audit_mode: false
@@ -214,16 +215,16 @@ strict_variables: false
 # instruct them thoroughly on their responsibility not to break the layout.
 wysiwyg:
   images: true
-  anchor: false
+  anchor: true
   tables: true
   fontcolor: true
   align: true        # Add 'align left', 'align right',etc.
-  subsuper: false     # Add buttons for subscript and superscript, using <sub> and <sup>
+  subsuper: true     # Add buttons for subscript and superscript, using <sub> and <sup>
   embed: true        # allows the user to insert embedded video's from Youtube, Vimeo, etc.
   underline: true    # add a button to underline text, using the <u>-tag.
   strike: true       # add a button to add stikethrough, using the <s>-tag.
   blockquote: true
-  codesnippet: false
+  codesnippet: true
   specialchar: true  # adds a button to insert special chars like '€' or '™'.
   ck:
     allowedContent: true # If set to 'true', any elements and attributes are allowed in Wysiwg Elements
