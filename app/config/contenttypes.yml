@@ -113,7 +113,7 @@ paginas:
     recordsperpage: 10
     show_on_dashboard: true
     default_status: publish
-    searchable: true
+    searchable: false
 
 config:
     name: Config

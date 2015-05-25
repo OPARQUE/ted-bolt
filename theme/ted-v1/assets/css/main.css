@@ -245,6 +245,12 @@ footer h6 {
 .meta-edicao {
   color: #ed3624;
 }
+.meta-edicao a {
+  color: #ed3624;
+}
+.meta-edicao a:hover {
+  color: #9e1a0d;
+}
 .meta-data {
   color: #999999;
 }

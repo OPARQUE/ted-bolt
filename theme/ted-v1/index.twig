@@ -5,7 +5,7 @@
     {% include 'partials/_main_slider.twig' %}
 
     <div class="row list-cards-home">
-        {% setcontent edicoes = 'edicoes' %}
+        {% setcontent edicoes = 'edicoes/latest/4' %}
         {% for item in edicoes %}
             <div class="col-md-6 col-xs-12">
                 <a href="{{item.link}}" class="card-home" style="background-image: url({{image(item.imagem)}});">
@@ -32,7 +32,11 @@
                     <a href="{{item.link}}">{{item.titulo}}</a>
                 </h4>
                 <div class="meta-artigo">
-                    <span class="meta-edicao">EDIÇÃO #1 JABURU</span>
+                    <span class="meta-edicao">
+                        <a href="{{item.related("edicoes").0.link}}">
+                            {{item.related("edicoes").0.titulo|upper}}
+                        </a>
+                    </span>
                 </div>
                 {{item.corpo|excerpt(160)}}
                 <a href="{{item.link}}"><strong>leia +</strong></a>

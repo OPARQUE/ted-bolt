@@ -23,6 +23,7 @@ theme: ted-v1
 # When specifying multiple locale, make sure the first is a standard locale
 locale: pt_BR
 #timezone: UTC
+timezone: America/Sao_Paulo
 
 # Set maintenance mode true or false
 # While in maintenance mode, only users of level editor or higher can access the site.

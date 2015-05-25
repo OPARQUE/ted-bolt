@@ -1,29 +1,16 @@
 {% include 'partials/_header.twig' %}
 <div class="container edicao">
-    <div class="row" style="margin-bottom:40px;">
-        <div class="col-xs-6">
-            <h1>{{record.titulo|upper}}</h1>
-            <h4>{{record.subtitulo|upper}}</h4>
-            <div class="edicao-desc">
-                {{record.corpo}}
-            </div>
-        </div>
-        <div class="col-xs-6">
-            <div class="topo-edicao-img" style="background-image: url({{image(record.imagem)}});"></div>
-        </div>
-    </div>
     <div class="row artigos-posts-relacionados">
         <div class="col-xs-12">
-            <h3>notíticas desta edição</h3>
+            <h3>resultados da busca</h3>
         </div>
         <div class="col-xs-12">
             <div class="topo-edicao-divider"></div>
         </div>
 
         <div class="col-xs-12">
-            {% set artigos = record.related() %}
-            {% if artigos is not empty %}
-                {% for item in artigos %}
+            {% if searchresult.no_of_results > 0 %}
+                {% for item in records %}
                     <div class="row item-list-artigo">
                         <div class="col-xs-12">
                             <h2>
@@ -44,7 +31,7 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <h4>Nenhuma notícia para esta edição ainda</h4>
+                <h4>Nenhum resultado para a sua busca</h4>
             {% endif %}
         </div>
     </div>

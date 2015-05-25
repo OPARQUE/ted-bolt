@@ -3,22 +3,25 @@
     <div class="row artigos-posts-relacionados">
         <div class="col-xs-12">
             <div class="breadcrumb-ted">
+                {% set menu = app.config.get('menu/main') %}
                 <ul>
                     <li>
-                        <a href="index.php">
+                        <a href="{{paths.rooturl}}">
                             <h4>HOME</h4>
                         </a>
                     </li>
                     <span class="fa fa-angle-right"></span>
                     <li>
-                        <a href="edicoes.php">
+                        <a href="{{paths.rooturl ~ menu.2.path}}">
                             <h4>EDIÇÕES</h4>
                         </a>
                     </li>
                     <span class="fa fa-angle-right"></span>
                     <li>
-                        <a href="edicao-jaburu.php">
-                            <h4><strong>{{record.related("edicoes").0.titulo|upper}}</strong></h4>
+                        <a href="{{record.related("edicoes").0.link}}">
+                            <h4>
+                                <strong>{{record.related("edicoes").0.titulo|upper}}</strong>
+                            </h4>
                         </a>
                     </li>
                 </ul>
@@ -31,7 +34,7 @@
                         {{record.titulo}}
                     </h2>
                     <div class="meta-artigo">
-                        <span class="meta-edicao">{{record.related("edicoes").0.titulo|upper}}</span> - <span class="meta-data">20/05/2015 - 10h52</span>
+                        <span class="meta-edicao">{{record.related("edicoes").0.titulo|upper}}</span> - <span class="meta-data">{{ record.datepublish|localdate() }}</span>
                     </div>
                 </div>
                 <div class="col-xs-6 artigo-desc">
