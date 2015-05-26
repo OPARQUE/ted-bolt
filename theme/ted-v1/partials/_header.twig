@@ -2,12 +2,21 @@
 {% setcontent config = 'config/geral' %}
 <html lang="en">
     <head>
+        
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>TED - Território do Bem</title>
+        <meta name="description" content="{% if record.corpo is not empty %}{{ record.corpo|striptags|excerpt }}{% elseif record.corpo_coluna_1 is not empty %}{{ record.corpo_coluna_1|striptags|excerpt }}{% else %}{{ app.config.get('general/payoff')|striptags }}{% endif %}"/>
+        <title>{% if record.titulo is defined %}{{ record.titulo|striptags }} | {% endif %}{{ app.config.get('general/sitename')|striptags }} {% if record.titulo is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff')|striptags }}{% endif %}</title>
 
+        <meta property="og:locale" content="{{ app.config.get('general/locale')|striptags }}" />
+        <meta property="og:title" content="{% if record.titulo is defined %}{{ record.titulo|striptags }} | {% endif %}{{ app.config.get('general/sitename')|striptags }} {% if record.titulo is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff')|striptags }}{% endif %}" />
+        <meta property="og:description" content="{% if record.corpo is not empty %}{{ record.corpo|striptags|excerpt }}{% elseif record.corpo_coluna_1 is not empty %}{{ record.corpo_coluna_1|striptags|excerpt }}{% else %}{{ app.config.get('general/payoff')|striptags }}{% endif %}" />
+        <meta property="og:url" content="{{ paths.currenturl }}" />
+        <meta property="og:site_name" content="{{ app.config.get('general/sitename')|striptags }}" />
+        <meta property="article:published_time" content="{{ record.datepublish }}" />
+        <meta property="og:image" content="{% if record.imagem is not empty %}{{ paths.hosturl ~ image(record.imagem) }}{% else %}{{ paths.hosturl ~ image(config.logo) }}{% endif %}" />
+        
         <!-- Bootstrap -->
         <link href="{{paths.theme}}assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
