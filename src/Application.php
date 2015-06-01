@@ -29,8 +29,8 @@ class Application extends Silex\Application
 
     public function __construct(array $values = array())
     {
-        $values['bolt_version'] = '2.1.6';
-        $values['bolt_name'] = '';
+        $values['bolt_version'] = '2.1.8';
+        $values['bolt_name'] = 'pl1';
         $values['bolt_released'] = true; // `true` for stable releases, `false` for alpha, beta and RC.
 
         parent::__construct($values);
@@ -292,16 +292,14 @@ class Application extends Silex\Application
         $this['locale'] = reset($configLocale);
 
         // Set the default timezone if provided in the Config
-        if ($tz = $this['config']->get('general/timezone')) {
-            date_default_timezone_set($tz);
-        }
+        date_default_timezone_set($this['config']->get('general/timezone') ?: ini_get('date.timezone') ?: 'UTC');
 
         // for javascript datetime calculations, timezone offset. e.g. "+02:00"
         $this['timezone_offset'] = date('P');
 
         // Set default locale, for Bolt
         $locale = array();
-        foreach ($configLocale as $key => $value) {
+        foreach ($configLocale as $value) {
             $locale = array_merge($locale, array(
                 $value . '.UTF-8',
                 $value . '.utf8',
@@ -471,6 +469,8 @@ class Application extends Silex\Application
      *
      * Note, we don't use $request->clearCookie (logs out a logged-on user) or
      * $request->removeCookie (doesn't prevent the header from being sent).
+     *
+     * @see https://github.com/bolt/bolt/issues/3425
      */
     public function unsetSessionCookie()
     {
@@ -495,8 +495,12 @@ class Application extends Silex\Application
         // Start the 'stopwatch' for the profiler.
         $this['stopwatch']->start('bolt.app.after');
 
-        // Don't set 'bolt_session' cookie, if we're in the frontend or async.
-        if ($this['config']->getWhichEnd() != 'backend') {
+        /*
+         * Don't set 'bolt_session' cookie, if we're in the frontend or async.
+         *
+         * @see https://github.com/bolt/bolt/issues/3425
+         */
+        if ($this['config']->get('general/cookies_no_frontend', false) && $this['config']->getWhichEnd() !== 'backend') {
             $this->unsetSessionCookie();
         }
 

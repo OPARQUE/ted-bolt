@@ -90,7 +90,7 @@ taxonomy_sort: DESC
 # and your changes do not show up on the website, be sure to check for a
 # config.yml file in your theme's folder. If a template is set there, it will
 # override the setting here.
-search_results_template: search.twig
+search_results_template: listing.twig
 search_results_records: 10
 
 # Add jQuery to the rendered HTML, whether or not it's added by an extension.
@@ -229,6 +229,7 @@ wysiwyg:
     allowedContent: true # If set to 'true', any elements and attributes are allowed in Wysiwg Elements
     autoParagraph: true # If set to 'true', any pasted content is wrapped in <p> tags for multiple line-breaks
     disableNativeSpellChecker: true # If set to 'true' it will stop browsers from underlining spelling mistakes
+    allowNbsp: true      # If set to 'false', the editor will strip out `&nbsp;` characters. If set to 'true', it will allow them. ¯\_(ツ)_/¯
     # viewSourceRoles: [ 'admin', 'developer' ] # the roles which are allowed to use the [Source]-button.
 
 # Use the 'mailoptions' setting to configure how Bolt sends email: using 'smtp'
