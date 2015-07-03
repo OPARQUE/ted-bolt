@@ -35,12 +35,18 @@
                                 <span class="meta-edicao">{{item.related("edicoes").0.titulo|upper}}</span> - <span class="meta-data">{{ item.datepublish|localdate() }}</span>
                             </div>
                         </div>
+                        {% if item.imagem is empty %}
+                        <div class="col-xs-12 artigo-desc">
+                            {{item.corpo|excerpt(340)}}
+                        </div>
+                        {% else %}
                         <div class="col-xs-6 artigo-desc">
                             {{item.corpo|excerpt(340)}}
                         </div>
                         <div class="col-xs-6">
                             <img src="{{image(item.imagem)}}" class="img-responsive" />
                         </div>
+                        {% endif %}
                     </div>
                 {% endfor %}
             {% else %}
