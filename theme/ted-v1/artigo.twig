@@ -37,7 +37,7 @@
                         <span class="meta-edicao">{{record.related("edicoes").0.titulo|upper}}</span> - <span class="meta-data">{{ record.datepublish|localdate() }}</span>
                     </div>
                 </div>
-				{% if record.imagem is empty %}
+				{% if record.imagem is empty or record.remover %}
 				<div class="col-xs-12 artigo-desc">
                     {{record.corpo}}
                 </div>
